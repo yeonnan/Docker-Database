@@ -1,0 +1,16 @@
+client, server의 버전 및 상태 확인 docker version⁠
+
+플러그인, 시스템 상세 정보 확인 ⁠docker info⁠
+
+메뉴얼 확인 ⁠docker --help⁠
+⁠docker (Management Command) Command⁠
+() : 대분류 / 생략 가능, Command : 소분류
+컨테이너 실행docker container run⁠ → ⁠docker run 으로도 가능
+
+컨테이너 실행 ⁠docker run (실행옵션) 이미지명 
+이미지 : 컨테이너를 실행하기 위한 재료. nginx 컨테이너를 실행하려면 이미지에 nginx라 적으면 됨
+실행옵션 : 컨테이너를 실행할 때 다양한 옵션 지정 가능 
+
+컨테이너 삭제 ⁠docker rm 컨테이너명/ID 
+
+컨테이너를 모두 삭제 docker rm -f $(docker ps -aq) 
