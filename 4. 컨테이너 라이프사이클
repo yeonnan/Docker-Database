@@ -1,0 +1,60 @@
+컨테이너의 로그 조회 ⁠docker logs (컨테이너명)⁠
+
+
+1.
+⁠docker create --name tencounter devwikirepo/tencounter⁠
+컨테이너를 created 상태로 생성
+
+
+⁠docker ps -a⁠를 해주면 tencounter가 created 상태인 것을 확인할 수 있다.
+현재 상태는 cpu나 메모리를 사용하지 않고 격리된 공간만 만들어진 상태이다.
+
+2.
+⁠docker start tencounter⁠
+컨테이너 실행
+
+컨테이너 실행 후 ⁠docker ps -a⁠를 해주면 실행 상태인 up이 뜨지만 10초 후 다시 ⁠docker ps -a⁠를 해보면 종료 상태인 exited인 것을 볼 수 있다.
+
+3.
+⁠docker start -i tencounter⁠
+컨테이너를 실행 및 출력 연결
+
+정확히 10까지만 카운팅 된 후 프로세스 종료
+
+⁠docker rm tencounter⁠
+실습 컨테이너 삭제
+
+----
+
+1.
+⁠docker run --name hundredcounter devwikirepo/hundredcounter⁠
+
+⁠docker pause hundredcounter
+실습용 컨테이너 일시정지
+
+⁠docker unpause hundredcounter⁠
+실습용 컨테이너 재실행
+
+
+docker pause를 통해 카운팅을 멈출 수 있지만 해당 상태에서는 cpu를 사용하지는 않지만 상태가 메모리에 그대로 저장되어 있기 때문에 메모리는 사용하는 상태이다.
+정지된 상태에서 docker unpause를 하면 다시 실행이 된다.
+
+⁠docker stop hundredcounter⁠
+실습용 컨테이너 정지
+종료 명령이 실행중인 프로세스면 정확히 10초 후에 종료된다.
+
+⁠docker start -i hundredcounter⁠
+실습용 컨테이너 재시작 및 터미널 연결
+-i 옵선을 주면 실행되면서 터미널로 바로 연결이 되기 때문에 1부터 출력이 된다. 
+
+⁠docker restart hundredcounter⁠
+실습용 컨테이너 재시작 및 터미널 연결
+
+⁠docker logs hundredcounter⁠
+실습용 컨테이너의 로그 확인
+
+⁠docker logs -f hundredcounter⁠
+실습용 컨테이너의 로그를 터미널로 연결 (실시간 로그 확인)
+
+⁠docker rm -f hundredcounter⁠
+실습 컨테이너 삭제
