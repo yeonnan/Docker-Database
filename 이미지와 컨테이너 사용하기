@@ -1,0 +1,50 @@
+*이미지명 : nginx
+
+이미지 목록 확인 ⁠docker images
+
+
+컨테이너 생성 ⁠⁠docker run nginx
+
+
+컨테이너 목록 확인 ⁠docker ps 
+
+
+하나의 이미지는 여러개의 컨테이너를 만들 수 있다.
+다른 컨테이너 만들기 ⁠docker run --name 컨테이너명 nginx 
+
+
+실행중인 컨테이너 멈춤 ⁠docker stop 컨테이너명 
+
+
+stop한 컨테이너 목록도 확인 가능 ⁠docker ps -a 
+
+
+stop한 컨테이너를 다시 실행하고 싶다면 ⁠docker start 컨테이너명 
+
+
+start로 실행을 다시 하면 실행 로그가 뜨지 않는데, 이때 로그도 같이 띄우기 ⁠docker logs 컨테이너명 
+
+
+한번 출력되면 꺼져버리는데 실시간 로그를 받고 싶다면 ⁠docker logs -f 컨테이너명 
+
+
+컨테이너 삭제 ⁠docker rm 컨테이너명⁠
+현재 실행중인 컨테이너를 삭제하려고 하면 에러가 나는데 이때는 ⁠docker stop 컨테이너명 으로 
+멈추고 다시 ⁠docker rm 으로 삭제하면 된다.
+
+
+현재 실행중인걸 한번에 삭제하고 싶다면 ⁠docker rm --force 컨테이너명 
+
+
+이미지 삭제 ⁠docker rmi nginx 
+
+
+컨테이너 포트 연결 ⁠docker run --name 컨테이너명 80:80 nginx 
+
+
+실행중인 컨테이너 내부 명령어 실행 ⁠docker exec 컨테이너명 실행시킬명령어 
+
+
+컨테이너와 지속적으로 연결을 유지하면서 명령어 전달 ⁠docker exec -it 컨테이너명 /bin/bash 
+연결을 끊고 컨테이너 밖으로 나가기⁠exit 
+
