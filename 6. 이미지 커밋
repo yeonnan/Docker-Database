@@ -1,0 +1,31 @@
+컨테이너 실행과 동시에 터미널 접속 ⁠docker run -it --name 컨테이너명 이미지명 bin/bash⁠ 
+
+
+⁠docker run -it --name officialNginx nginx bin/bash⁠
+nginx 이미지 실행과 동시에 bash 쉘 접근
+pc의 파일 리스트가 아닌 실행중인 nginx 컨테이너 안에서 파일 리스트를 출력한 결과가 나타난다.
+
+
+d⁠ocker commit -m 'edited index.html' -c 'CMD ["nginx", "-g", "daemon off;"]' officialNginx yeonahn/commitnginx
+실행중인 officialNginx 컨테이너를 이미지로 커밋
+
+
+⁠docker image ls 레지스트리계정명/commitnginx
+생성된 이미지 확인
+
+
+⁠docker image history 레지스트리계정명/commitnginx⁠
+생성된 이미지의 히스토리 확인
+
+
+⁠docker run -d -p 80:80 --name my-nginx 레지스트리계정명/commitnginx⁠
+새로운 이미지로 컨테이너 생성
+
+
+⁠docker push 레지스트리계정명/commitngninx⁠
+실습에서 제작한 이미지 푸시
+
+
+실행 중인 컨테이너를 이미지로 생성 ⁠docker commit -m 커밋명 실행중인컨테이너명 생성할이미지명 
+
+
